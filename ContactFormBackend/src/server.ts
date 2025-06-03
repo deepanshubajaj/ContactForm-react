@@ -11,7 +11,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://contact-form-react-sepia.vercel.app', 'http://localhost:5173'],
+  methods: ['POST'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // MongoDB Connection
@@ -200,7 +205,7 @@ interface ContactFormData {
 app.post('/api/contact', async (req: Request, res: Response) => {
   try {
     const formData: ContactFormData = req.body;
-    
+
     // Validate form data
     if (!formData.name || !formData.email || !formData.message) {
       return res.status(400).json({ error: 'All fields are required' });
@@ -240,7 +245,7 @@ app.post('/api/contact', async (req: Request, res: Response) => {
     });
 
     // Send success response
-    res.status(200).json({ 
+    res.status(200).json({
       message: 'Message received successfully',
       details: 'Your message has been saved and confirmation emails have been sent'
     });
@@ -257,6 +262,6 @@ app.get('/health', (req: Request, res: Response) => {
 });
 
 // Start server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is running on port ${ port }`);
 }); 
