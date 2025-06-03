@@ -13,14 +13,19 @@ interface InputLabelProps {
   isActive: boolean;
 }
 
-const AlertOverlay = styled.div<{ show: boolean }>`
+interface StyledProps {
+  show?: boolean;
+  isActive?: boolean;
+}
+
+const AlertOverlay = styled.div<StyledProps>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: ${props => props.show ? 'flex' : 'none'};
+  display: ${(props: StyledProps) => props.show ? 'flex' : 'none'};
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -321,8 +326,8 @@ const TextArea = styled.textarea`
 const InputLabel = styled.label<InputLabelProps>`
   position: absolute;
   left: 1rem;
-  top: ${props => props.isActive ? '-0.7rem' : '1rem'};
-  font-size: ${props => props.isActive ? '0.85rem' : '1rem'};
+  top: ${(props: InputLabelProps) => props.isActive ? '-0.7rem' : '1rem'};
+  font-size: ${(props: InputLabelProps) => props.isActive ? '0.85rem' : '1rem'};
   color: #666;
   transition: all 0.2s ease;
   pointer-events: none;
@@ -332,7 +337,7 @@ const InputLabel = styled.label<InputLabelProps>`
   padding: 0 0.5rem;
 
   @media (max-width: 768px) {
-    font-size: ${props => props.isActive ? '0.8rem' : '0.9rem'};
+    font-size: ${(props: InputLabelProps) => props.isActive ? '0.8rem' : '0.9rem'};
   }
 `;
 
@@ -421,7 +426,7 @@ const ContactForm: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [emailError, setEmailError] = useState('');
   const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-  const apiUrl = baseUrl.endsWith('/api') ? baseUrl : ${ baseUrl }/api;
+  const apiUrl = baseUrl.endsWith('/api') ? baseUrl : `${baseUrl}/api`;
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -436,12 +441,11 @@ const ContactForm: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev: FormData) => ({
       ...prev,
       [name]: value
     }));
 
-    // Clear email error when user starts typing
     if (name === 'email') {
       setEmailError('');
     }
@@ -449,7 +453,7 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    
     const emailValidationError = validateEmail(formData.email);
     if (emailValidationError) {
       setEmailError(emailValidationError);
@@ -464,7 +468,7 @@ const ContactForm: React.FC = () => {
         },
         body: JSON.stringify(formData),
       });
-
+      
       if (response.ok) {
         setShowAlert(true);
         setFormData({ name: '', email: '', message: '' });
