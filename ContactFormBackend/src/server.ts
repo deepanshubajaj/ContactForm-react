@@ -8,7 +8,7 @@ import path from 'path';
 dotenv.config();
 
 const app = express();
-const port = parseInt(process.env.PORT || '3000',10);
+const port = parseInt(process.env.PORT || '3000', 10);
 
 // Middleware
 app.use(cors({
@@ -263,5 +263,5 @@ app.get('/health', (req: Request, res: Response) => {
 
 // Start server
 app.listen(port, '0.0.0.0', () => {
-  console.log(`Server is running on port ${ port }`);
+  console.log(`Server is running on port ${port}`);
 }); 
