@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { 
-  FaGithub, 
-  FaLinkedin, 
-  FaInstagram, 
-  FaSnapchat, 
-  FaEnvelope, 
-  FaGlobe, 
-  FaIdCard, 
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaSnapchat,
+  FaEnvelope,
+  FaGlobe,
+  FaIdCard,
   FaTwitter,
   FaHeart,
   FaCopyright,
@@ -73,7 +73,7 @@ const Copyright = styled.div`
 const Footer: React.FC = () => {
   const creatorName = import.meta.env.VITE_CREATOR_NAME;
   const currentYear = import.meta.env.VITE_COPYRIGHT_YEAR;
-  
+
   const socialLinks = [
     {
       icon: FaGithub,
@@ -126,10 +126,10 @@ const Footer: React.FC = () => {
     <FooterContainer>
       <SocialIcons>
         {socialLinks.map((link, index) => (
-          <IconLink 
-            key={index} 
-            href={link.url} 
-            target={link.url.startsWith('mailto:') ? '_self' : '_blank'} 
+          <IconLink
+            key={index}
+            href={link.url}
+            target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
             rel="noopener noreferrer"
           >
             <link.icon />

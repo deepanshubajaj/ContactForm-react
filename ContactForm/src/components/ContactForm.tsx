@@ -453,7 +453,7 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const emailValidationError = validateEmail(formData.email);
     if (emailValidationError) {
       setEmailError(emailValidationError);
@@ -468,7 +468,7 @@ const ContactForm: React.FC = () => {
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
         setShowAlert(true);
         setFormData({ name: '', email: '', message: '' });
