@@ -420,7 +420,8 @@ const ContactForm: React.FC = () => {
   });
   const [showAlert, setShowAlert] = useState(false);
   const [emailError, setEmailError] = useState('');
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  const apiUrl = baseUrl.endsWith('/api') ? baseUrl : ${ baseUrl }/api;
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -448,7 +449,7 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const emailValidationError = validateEmail(formData.email);
     if (emailValidationError) {
       setEmailError(emailValidationError);
@@ -463,7 +464,7 @@ const ContactForm: React.FC = () => {
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
         setShowAlert(true);
         setFormData({ name: '', email: '', message: '' });
