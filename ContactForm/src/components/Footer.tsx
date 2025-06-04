@@ -8,7 +8,6 @@ import {
   FaEnvelope,
   FaGlobe,
   FaIdCard,
-  FaTwitter,
   FaHeart,
   FaCopyright,
   FaFacebook
