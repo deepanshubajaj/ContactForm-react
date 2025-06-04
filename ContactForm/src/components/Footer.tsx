@@ -14,6 +14,8 @@ import {
   FaFacebook
 } from 'react-icons/fa';
 
+import { SiX } from 'react-icons/si';
+
 const FooterContainer = styled.footer`
   background: #2A2A2A;
   padding: 2rem 0;
@@ -116,8 +118,8 @@ const Footer: React.FC = () => {
       url: import.meta.env.VITE_ECARD_URL || 'https://yourecard.com'
     },
     {
-      icon: FaTwitter,
-      label: 'Twitter',
+      icon: SiX,
+      label: 'X',
       url: import.meta.env.VITE_TWITTER_URL || 'https://twitter.com/yourusername'
     }
   ];
