@@ -4,7 +4,7 @@ ContactForm-react
 
 <p align="center">
   <a href="https://contact-form-react-sepia.vercel.app/"><strong>Live Demo</strong></a>   •   
-  <a href="https://github.com/your-username/contactform-react"><strong>GitHub Repo</strong></a>
+  <a href="https://github.com/deepanshubajaj/ContactForm-react"><strong>GitHub Repo</strong></a>
 </p>
 
 <p align="center">
