@@ -220,7 +220,7 @@ Content-Type: application/json
 ## 🖼️ App Icon
 
 <p align="center">
-  <img src="ProjectOutputs/Snapshots/ReportrixLogo.png" alt="Icon1" width="40%"  />
+  <img src="ProjectOutputs/Snapshots/Icon.png" alt="Icon1" width="40%"  />
 </p>
 
 <p align="center">
