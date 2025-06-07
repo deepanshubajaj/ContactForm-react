@@ -1,5 +1,3 @@
-# ContactForm-react
-ContactForm-react
 <h1 align="center">📬 ContactForm - React + Node App</h1>
 
 <p align="center">
@@ -232,13 +230,25 @@ Content-Type: application/json
 ## 🖼️ Screenshots
 
 <p align="center">
-  <img src="ProjectOutputs/Snapshots/im1.png" alt="Image1"  />
+  <img src="ProjectOutputs/Snapshots/im1.jpg" alt="Image1"  />
 </p>
 
 ##
 
 <p align="center">
-  <img src="ProjectOutputs/Snapshots/im2.png" alt="Image2"  />
+  <img src="ProjectOutputs/Snapshots/im2.jpg" alt="Image2"  />
+</p>
+
+##
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/im3.jpg" alt="Image3"  />
+</p>
+
+##
+
+<p align="center">
+  <img src="ProjectOutputs/Snapshots/im4.jpg" alt="Image4"  />
 </p>
 
 ##
